@@ -10,9 +10,6 @@ import SwiftUI
 let request = RequestMapper()
 
 struct ContentView: View {
-    init(){
-        request.getNewListData(id: "")
-    }
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,6 +18,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear(){
+            request.getNewListData(id: "")
+        }
     }
 }
 

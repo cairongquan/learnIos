@@ -10,7 +10,7 @@ extension FirstAppApi:TargetType {
     var path: String {
         switch self {
             case .getNewsList(let lastId):
-                return "/newsLisy?\(lastId)"
+                return "/news"
         }
     }
     
@@ -29,6 +29,6 @@ extension FirstAppApi:TargetType {
     
     // baseURL 接口前缀
     var baseURL: URL {
-        return URL(string:"http://localhost:3000/")!
+        return URL(string:"http://localhost:3000")!
     }
 }
