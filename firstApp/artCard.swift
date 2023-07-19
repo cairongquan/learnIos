@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-
-func HexColor(rgbValue: UInt) -> Color {
-   return Color (
-       red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-       green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-       blue: CGFloat(rgbValue & 0x0000FF) / 255.0
-   )
-}
-
 struct artCard: View {
     typealias newsItem = (picPath:String,title:String,vicTitle:String,date:String,type:String)
     
@@ -29,16 +20,16 @@ struct artCard: View {
                 HStack(spacing:14) {
                     AsyncImage(url:URL(string: self.newsItem.picPath.replacingOccurrences(of: "http://", with: "https://"))){ phase in
                         Group{
-                            if let image = phase.image{
-                                image
-                                .resizable()
-                                .frame(width: 110,height:110)
-                                .cornerRadius(12)
-                                .clipped()
+                                if let image = phase.image{
+                                    image
+                                    .resizable()
+                                    .frame(width: 110,height:110,alignment: .leading)
+                                    .cornerRadius(12)
+                                    .clipped()
+                                }
                             }
                         }
-                        }
-                    VStack(spacing:14) {
+                    VStack(alignment: .leading,spacing:14) {
                         Text(self.newsItem.title)
                             .lineLimit(2)
                             .bold()

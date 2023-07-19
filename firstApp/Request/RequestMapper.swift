@@ -10,6 +10,7 @@ struct NewsList: Decodable {
         var from: String
         var relativeTime: String
         var title:String
+        var created_at:Int
 
         private enum CodingKeys: String, CodingKey {
             case id
@@ -18,6 +19,7 @@ struct NewsList: Decodable {
             case from
             case relativeTime
             case title
+            case created_at
         }
     }
 }

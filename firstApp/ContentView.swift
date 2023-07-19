@@ -17,7 +17,21 @@ struct ContentView: View {
                     VStack(spacing:12) {
                         ForEach(newsArray,id: \.self.id) { Element in
                             if Element.title != "" {
-                                artCard(newsItem: (picPath:Element.cover,title:Element.title,vicTitle:Element.content,date:Element.relativeTime,type:""))
+                                artCard(newsItem: (
+                                    picPath:Element.cover,
+                                    title:Element.title,
+                                    vicTitle:Element.content,
+                                    date:Element.relativeTime,
+                                    type:""
+                                ))
+                            }
+                            else{
+                                bannerCard(bannerData:(
+                                    backgroundImage:Element.cover,
+                                    date:Element.created_at,
+                                    content:Element.content,
+                                    from:Element.from
+                                ))
                             }
                         }
                     }
@@ -35,6 +49,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+                ContentView()
     }
 }
