@@ -7,20 +7,29 @@
 
 import SwiftUI
 
-let request = RequestMapper()
-
 struct ContentView: View {
+    @StateObject private var viewModel = RequestMapper()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            if let newsArray = viewModel.newsList {
+                ScrollView {
+                    VStack(spacing:12) {
+                        ForEach(newsArray,id: \.self.id) { Element in
+                            if Element.title != "" {
+                                artCard(newsItem: (picPath:Element.cover,title:Element.title,vicTitle:Element.content,date:Element.relativeTime,type:""))
+                            }
+                        }
+                    }
+                }
+                .padding(12)
+            }
         }
-        .padding()
-        .onAppear(){
-            request.getNewListData(id: "")
+        .onAppear{
+            viewModel.getNewListData(id: "")
         }
+        .frame(width: .infinity,height: .infinity)
+        .background(HexColor(rgbValue: 0xf4f4f4))
     }
 }
 
