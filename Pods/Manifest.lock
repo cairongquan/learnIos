@@ -4,19 +4,23 @@ PODS:
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - SwiftUI-Pull-To-Refresh (1.1.9)
 
 DEPENDENCIES:
   - Moya
+  - SwiftUI-Pull-To-Refresh (~> 1.1.9)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
+    - SwiftUI-Pull-To-Refresh
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  SwiftUI-Pull-To-Refresh: 334b72e9c23d5bb9d309e63ec7348dcd06e6e069
 
-PODFILE CHECKSUM: 8a37d63b44d6f09153b86005557ae61b2026d600
+PODFILE CHECKSUM: b7f175df613c5f360e59170efc50c36bafb8e56a
 
 COCOAPODS: 1.12.1
