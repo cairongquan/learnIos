@@ -39,7 +39,7 @@ struct bannerCard: View {
                         .foregroundColor(.white)
                         .font(Font.system(size:16))
                         .fontWeight(Font.Weight.semibold)
-                        .padding(EdgeInsets(top: 22, leading: 0, bottom:24, trailing:26))
+                        .padding(EdgeInsets(top: 18, leading: 0, bottom:20, trailing:26))
                     Text("—— \(self.bannerData.from)")
                         .foregroundColor(HexColor(rgbValue: 0xafb1b7))
                         .font(Font.system(size:14))

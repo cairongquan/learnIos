@@ -16,26 +16,27 @@ struct TopHeader: View {
     }
     
     var body: some View {
-        VStack{
-            Text("鲸闻")
-                .foregroundColor(HexColor(rgbValue: 0x213856))
-                .font(Font.system(size:16))
-                .fontWeight(Font.Weight.medium)
-            HStack(alignment: .center,spacing: 16){
-                ForEach(self.tabListData,id: \.self){ tabItem in
-                    Text(tabItem)
-                        .foregroundColor(HexColor(rgbValue: tabListData[activeTabIndex] == tabItem ? 0x112a4a:0xc0c8d4))
-                        .onTapGesture {
-                            self.activeTabIndex = tabListData.firstIndex(of: tabItem) ?? 0
-                        }
+            VStack{
+                Text("鲸闻")
+                    .foregroundColor(HexColor(rgbValue: 0x213856))
+                    .font(Font.system(size:16))
+                    .fontWeight(Font.Weight.medium)
+                HStack(alignment: .center,spacing: 16){
+                    ForEach(self.tabListData,id: \.self){ tabItem in
+                        var isActive = tabListData[activeTabIndex] == tabItem
+                        Text(tabItem)
+                            .foregroundColor(HexColor(rgbValue: isActive ? 0x112a4a:0xc0c8d4))
+                            .fontWeight(isActive ? Font.Weight.bold : Font.Weight.medium)
+                            .onTapGesture {
+                                self.activeTabIndex = tabListData.firstIndex(of: tabItem) ?? 0
+                            }
+                    }
+                    .font(Font.system(size:18))
                 }
-                .font(Font.system(size:18))
-                .fontWeight(Font.Weight.medium)
+                .frame(maxWidth:.infinity,alignment: .leading)
+                .padding(EdgeInsets(top:10, leading: 12, bottom: 0, trailing:0))
             }
-            .frame(maxWidth:.infinity,alignment: .leading)
-            .padding(EdgeInsets(top:10, leading: 12, bottom: 0, trailing:0))
         }
-    }
 }
 
 struct TopHeader_Previews: PreviewProvider {

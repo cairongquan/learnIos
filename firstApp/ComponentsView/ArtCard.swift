@@ -17,14 +17,14 @@ struct artCard: View {
     }
     var body: some View {
             VStack{
-                HStack(spacing:14) {
+                HStack(spacing: 12) {
                     AsyncImage(url:URL(string: self.newsItem.picPath.replacingOccurrences(of: "http://", with: "https://"))){ phase in
                         Group{
                                 if let image = phase.image{
                                     image
                                     .resizable()
-                                    .frame(width: 110,height:110,alignment: .leading)
-                                    .cornerRadius(12)
+                                    .frame(width: 90,height:90,alignment: .leading)
+                                    .cornerRadius(10)
                                     .clipped()
                                 }
                             }
@@ -38,7 +38,7 @@ struct artCard: View {
                             .font(Font.system(size:12))
                             .lineLimit(2)
                             .foregroundColor(HexColor(rgbValue: 0x666666))
-                    }
+                    }.frame(width: UIScreen.main.bounds.width - 154)
                 }
                 .padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 12))
                 HStack(spacing: 2.0) {
