@@ -22,6 +22,7 @@
 		0E6F28972A6D562700559A6D /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F28962A6D562700559A6D /* Loading.swift */; };
 		0E6F289B2A6D6CCB00559A6D /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F289A2A6D6CCB00559A6D /* Demo.swift */; };
 		0E7072122A65B5A100AB4EFC /* wallhaven-4gj9d7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E7072112A65B5A000AB4EFC /* wallhaven-4gj9d7.jpg */; };
+		0EAE24FF2A6EB18C00F07A36 /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 0EAE24FE2A6EB18C00F07A36 /* Refresh */; };
 		0EE2EBAD2A6591A7007D8E13 /* RequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2EBAC2A6591A7007D8E13 /* RequestMapper.swift */; };
 		419EE0C8F1C2DB00FD5E0AFB /* Pods_firstApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADDE9F48F5A345ECEF11947 /* Pods_firstApp.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EAE24FF2A6EB18C00F07A36 /* Refresh in Frameworks */,
 				419EE0C8F1C2DB00FD5E0AFB /* Pods_firstApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +214,9 @@
 			dependencies = (
 			);
 			name = firstApp;
+			packageProductDependencies = (
+				0EAE24FE2A6EB18C00F07A36 /* Refresh */,
+			);
 			productName = firstApp;
 			productReference = 0E5411092A658B62005CF2E0 /* firstApp.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 0E5411002A658B62005CF2E0;
+			packageReferences = (
+				0EAE24FD2A6EB18C00F07A36 /* XCRemoteSwiftPackageReference "Refresh" */,
+			);
 			productRefGroup = 0E54110A2A658B62005CF2E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -703,6 +711,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0EAE24FD2A6EB18C00F07A36 /* XCRemoteSwiftPackageReference "Refresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wxxsw/Refresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0EAE24FE2A6EB18C00F07A36 /* Refresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EAE24FD2A6EB18C00F07A36 /* XCRemoteSwiftPackageReference "Refresh" */;
+			productName = Refresh;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E5411012A658B62005CF2E0 /* Project object */;
 }

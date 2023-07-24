@@ -1,4 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-firstApp/Pods-firstApp-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/MZRefresh/MZRefresh.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
+${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
 ${BUILT_PRODUCTS_DIR}/SwiftUI-Pull-To-Refresh/SwiftUI_Pull_To_Refresh.framework

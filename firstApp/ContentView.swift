@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import Refresh
 
 struct ContentView: View {
     @StateObject private var viewModel = RequestMapper()
     @State var isAnimating:Bool = true
+    @State var headerRefreshing: Bool = false
+    
+    func headerAction(){
+        print("action")
+        self.isAnimating = false
+    }
     
     var body: some View {
         ZStack{
@@ -17,6 +24,13 @@ struct ContentView: View {
                 TopHeader()
                 if let newsArray = viewModel.newsList {
                         ScrollView {
+                            RefreshHeader(refreshing: $headerRefreshing, action:headerAction ) { progress in
+                                   if self.headerRefreshing {
+                                       Text("refreshing.")
+                                   } else {
+                                       Text("Pull to refres")
+                                   }
+                               }
                             VStack(spacing:12) {
                                     ForEach(newsArray,id: \.self.id) { Element in
                                         Group{
@@ -41,6 +55,7 @@ struct ContentView: View {
                                     }
                             }
                         }
+                        .enableRefresh()
                         .padding(12)
                 }else{
                     VStack{

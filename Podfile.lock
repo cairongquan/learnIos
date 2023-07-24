@@ -4,23 +4,33 @@ PODS:
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - MZRefresh (0.0.8):
+    - NVActivityIndicatorView
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - SwiftUI-Pull-To-Refresh (1.1.9)
 
 DEPENDENCIES:
   - Moya
+  - MZRefresh (~> 0.0.8)
   - SwiftUI-Pull-To-Refresh (~> 1.1.9)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
+    - MZRefresh
+    - NVActivityIndicatorView
     - SwiftUI-Pull-To-Refresh
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  MZRefresh: c56f9aa241f10f63728d84b30c73aad62c779294
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SwiftUI-Pull-To-Refresh: 334b72e9c23d5bb9d309e63ec7348dcd06e6e069
 
-PODFILE CHECKSUM: b7f175df613c5f360e59170efc50c36bafb8e56a
+PODFILE CHECKSUM: ec522509f3e803d8d64f9ca75d15905ff6241360
 
 COCOAPODS: 1.12.1

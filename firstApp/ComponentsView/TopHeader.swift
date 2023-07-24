@@ -23,7 +23,7 @@ struct TopHeader: View {
                     .fontWeight(Font.Weight.medium)
                 HStack(alignment: .center,spacing: 16){
                     ForEach(self.tabListData,id: \.self){ tabItem in
-                        var isActive = tabListData[activeTabIndex] == tabItem
+                        let isActive = tabListData[activeTabIndex] == tabItem
                         Text(tabItem)
                             .foregroundColor(HexColor(rgbValue: isActive ? 0x112a4a:0xc0c8d4))
                             .fontWeight(isActive ? Font.Weight.bold : Font.Weight.medium)
@@ -36,6 +36,9 @@ struct TopHeader: View {
                 .frame(maxWidth:.infinity,alignment: .leading)
                 .padding(EdgeInsets(top:10, leading: 12, bottom: 0, trailing:0))
             }
+            .frame(height: 84)
+            .zIndex(10)
+            .background(HexColor(rgbValue: 0xf4f4f4))
         }
 }
 
