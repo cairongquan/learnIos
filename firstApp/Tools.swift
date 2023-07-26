@@ -34,3 +34,4 @@ func getTimeValue(time:Double) -> (month:String,day:String,year:String){
         month:MonthDirectory[timer.component(.month, from: date)]!
     )
 }
+

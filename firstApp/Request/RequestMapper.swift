@@ -29,7 +29,7 @@ public class RequestMapper:ObservableObject {
     let requestIns = MoyaProvider<FirstAppApi>()
     
     // 请求新闻列表
-    func getNewListData(id:String){
+    func getNewListData(id:String,_action:(()->Void)? = nil){
         self.requestIns.request(.getNewsList(id:id)){ result in
             switch result {
               case .success(let response):
@@ -37,6 +37,7 @@ public class RequestMapper:ObservableObject {
                     if let utf8Data = String(data: response.data, encoding: .utf8)?.data(using: .utf8){
                         let resolveData = try JSONDecoder().decode(NewsList.self, from: utf8Data)
                         self.newsList = resolveData.items
+                        _action?()
                         }
                     }
                 catch {

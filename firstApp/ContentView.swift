@@ -10,13 +10,8 @@ import Refresh
 
 struct ContentView: View {
     @StateObject private var viewModel = RequestMapper()
-    @State var isAnimating:Bool = true
     @State var headerRefreshing: Bool = false
-    
-    func headerAction(){
-        print("action")
-        self.isAnimating = false
-    }
+    @State private var progress: CGFloat = 0.0
     
     var body: some View {
         ZStack{
@@ -26,11 +21,13 @@ struct ContentView: View {
                         ScrollView {
                             RefreshHeader(refreshing: $headerRefreshing, action:headerAction ) { progress in
                                    if self.headerRefreshing {
-                                       Text("refreshing.")
+                                       // 下拉释放
+                                       Loading(tipText: "")
                                    } else {
-                                       Text("Pull to refres")
-                                   }
-                               }
+                                    // 下拉不释放
+                                    RefreshLoadView(progress: putProgressValue(progress:progress))
+                                }
+                            }
                             VStack(spacing:12) {
                                     ForEach(newsArray,id: \.self.id) { Element in
                                         Group{
@@ -59,7 +56,7 @@ struct ContentView: View {
                         .padding(12)
                 }else{
                     VStack{
-                        Loading()
+                        Loading(tipText:"加载数据中...")
                     }
                     .frame(maxHeight: .infinity)
                 }
@@ -71,6 +68,22 @@ struct ContentView: View {
         .frame(width: .infinity,height: .infinity)
         .background(HexColor(rgbValue: 0xf4f4f4))
         .edgesIgnoringSafeArea(.bottom)
+    }
+}
+
+// 扩展结构 将方法写入次处
+extension ContentView {
+    // 下拉刷新
+    func headerAction(){
+        viewModel.getNewListData(id: ""){
+            self.headerRefreshing = false
+        }
+    }
+    
+    // 类型转换 赋值
+    func putProgressValue(progress:CGFloat) -> Binding<CGFloat>{
+        self.progress = progress
+        return self.$progress
     }
 }
 
