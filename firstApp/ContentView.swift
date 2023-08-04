@@ -11,6 +11,7 @@ import Refresh
 struct ContentView: View {
     @StateObject private var viewModel = RequestMapper()
     @State var headerRefreshing: Bool = false
+    @State var footerRefreshing: Bool  = false
     @State private var progress: CGFloat = 0.0
     
     var body: some View {
@@ -51,6 +52,11 @@ struct ContentView: View {
                                         }
                                     }
                             }
+                            RefreshFooter(refreshing: $footerRefreshing, action:footerAction ) {
+                                if self.footerRefreshing {
+                                    Loading(tipText: "加载中")
+                                }
+                            }
                         }
                         .enableRefresh()
                         .padding(12)
@@ -71,13 +77,26 @@ struct ContentView: View {
     }
 }
 
-// 扩展结构 将方法写入次处
+// 扩展结构 将方法写次处
 extension ContentView {
     // 下拉刷新
     func headerAction(){
-        viewModel.getNewListData(id: ""){
+        let tempNewsList = viewModel.newsList
+        viewModel.getNewListData(id: "",_action: {
             self.headerRefreshing = false
-        }
+            if ((viewModel.newsList!.count) == 0) {
+                viewModel.newsList = tempNewsList
+            }
+        })
+    }
+    
+    // 上拉刷新
+    func footerAction(){
+        self.footerRefreshing = true
+        print("target")
+//        viewModel.getNewListData(id: "",_action: {
+//            self.footerRefreshing = false
+//        })
     }
     
     // 类型转换 赋值
@@ -85,6 +104,7 @@ extension ContentView {
         self.progress = progress
         return self.$progress
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

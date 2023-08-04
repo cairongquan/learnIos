@@ -29,6 +29,6 @@ extension FirstAppApi:TargetType {
     
     // baseURL 接口前缀
     var baseURL: URL {
-        return URL(string:"http://192.168.31.127:3000")!
+        return URL(string:"http://localhost:3000")!
     }
 }
