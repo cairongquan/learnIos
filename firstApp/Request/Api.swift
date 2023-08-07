@@ -1,16 +1,15 @@
 import Moya
 
 enum FirstAppApi {
-    case getNewsList(id:String)
+    case getNewsList(id: String)
 }
 
-extension FirstAppApi:TargetType {
-    
-    //定义请求路径
+extension FirstAppApi: TargetType {
+    // 定义请求路径
     var path: String {
         switch self {
-            case .getNewsList(let lastId):
-                return "/news"
+        case .getNewsList:
+            return "/news"
         }
     }
     
@@ -20,15 +19,19 @@ extension FirstAppApi:TargetType {
     }
     
     var task: Moya.Task {
-        return .requestPlain // 如果有请求参数，可以在此处返回相应的参数
+        switch self {
+        case .getNewsList(let lastId):
+            let params: [String: Any] = ["last_oid": lastId]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        }
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         return nil
     }
     
     // baseURL 接口前缀
     var baseURL: URL {
-        return URL(string:"http://localhost:3000")!
+        return URL(string: "http://192.168.50.74:3000")!
     }
 }

@@ -34,7 +34,7 @@ struct TopHeader: View {
                     .font(Font.system(size:18))
                 }
                 .frame(maxWidth:.infinity,alignment: .leading)
-                .padding(EdgeInsets(top:10, leading: 12, bottom: 0, trailing:0))
+                .padding(EdgeInsets(top:12, leading: 12, bottom: 0, trailing:0))
             }
             .frame(height: 84)
             .zIndex(10)
