@@ -30,7 +30,7 @@ struct ContentView: View {
                                 RefreshLoadView(progress: putProgressValue(progress: progress))
                             }
                         }
-                        VStack(spacing: 12) {
+                        VStack(alignment: .center, spacing: 12) {
                             ForEach(self.newsListArray, id: \.self._id) { Element in
                                 Group {
                                     if Element.title != "" {
@@ -60,6 +60,7 @@ struct ContentView: View {
                     }
                     .enableRefresh()
                     .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+//                    .frame(maxWidth:UIScreen.main.bounds.width + 20)
                 } else {
                     VStack {
                         Loading(tipText: "加载数据中...")

@@ -38,7 +38,7 @@ struct artCard: View {
                         .font(Font.system(size: 12))
                         .lineLimit(2)
                         .foregroundColor(HexColor(rgbValue: 0x666666))
-                }.frame(width: UIScreen.main.bounds.width - 154)
+                }
             }
             .padding(EdgeInsets(top: 12, leading: 12, bottom: 0, trailing: 12))
             HStack(spacing: 2.0) {
@@ -60,7 +60,6 @@ struct artCard: View {
             }
             .padding(EdgeInsets(top: 16, leading: 12, bottom: 12, trailing: 12))
         }
-        .edgesIgnoringSafeArea(.bottom)
         .background(.white)
         .cornerRadius(10)
     }

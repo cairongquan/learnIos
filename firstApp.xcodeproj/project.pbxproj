@@ -20,7 +20,6 @@
 		0E5AFB512A680F9000F41B3E /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5AFB502A680F9000F41B3E /* Tools.swift */; };
 		0E6F28952A6D0CB700559A6D /* TopHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F28942A6D0CB700559A6D /* TopHeader.swift */; };
 		0E6F28972A6D562700559A6D /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F28962A6D562700559A6D /* Loading.swift */; };
-		0E7072122A65B5A100AB4EFC /* wallhaven-4gj9d7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E7072112A65B5A000AB4EFC /* wallhaven-4gj9d7.jpg */; };
 		0E8330B42A700C95002927FC /* RefreshLoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8330B32A700C95002927FC /* RefreshLoadView.swift */; };
 		0EAE24FF2A6EB18C00F07A36 /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 0EAE24FE2A6EB18C00F07A36 /* Refresh */; };
 		0EE2EBAD2A6591A7007D8E13 /* RequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2EBAC2A6591A7007D8E13 /* RequestMapper.swift */; };
@@ -61,7 +60,6 @@
 		0E5AFB502A680F9000F41B3E /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		0E6F28942A6D0CB700559A6D /* TopHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeader.swift; sourceTree = "<group>"; };
 		0E6F28962A6D562700559A6D /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
-		0E7072112A65B5A000AB4EFC /* wallhaven-4gj9d7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wallhaven-4gj9d7.jpg"; sourceTree = "<group>"; };
 		0E8330B32A700C95002927FC /* RefreshLoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshLoadView.swift; sourceTree = "<group>"; };
 		0EE2EBAC2A6591A7007D8E13 /* RequestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMapper.swift; sourceTree = "<group>"; };
 		6ADDE9F48F5A345ECEF11947 /* Pods_firstApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firstApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +123,6 @@
 				0EE2EBAE2A659316007D8E13 /* Request */,
 				0E54110C2A658B62005CF2E0 /* firstAppApp.swift */,
 				0E54110E2A658B62005CF2E0 /* ContentView.swift */,
-				0E7072112A65B5A000AB4EFC /* wallhaven-4gj9d7.jpg */,
 				0E5411102A658B64005CF2E0 /* Assets.xcassets */,
 				0E5411122A658B64005CF2E0 /* Preview Content */,
 				0E5AFB502A680F9000F41B3E /* Tools.swift */,
@@ -309,7 +306,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E5411142A658B64005CF2E0 /* Preview Assets.xcassets in Resources */,
-				0E7072122A65B5A100AB4EFC /* wallhaven-4gj9d7.jpg in Resources */,
 				0E5411112A658B64005CF2E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
