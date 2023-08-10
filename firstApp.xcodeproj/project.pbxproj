@@ -23,6 +23,8 @@
 		0E8330B42A700C95002927FC /* RefreshLoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8330B32A700C95002927FC /* RefreshLoadView.swift */; };
 		0EAE24FF2A6EB18C00F07A36 /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 0EAE24FE2A6EB18C00F07A36 /* Refresh */; };
 		0EE2EBAD2A6591A7007D8E13 /* RequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2EBAC2A6591A7007D8E13 /* RequestMapper.swift */; };
+		0EE641FB2A851D68005E110C /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE641FA2A851D68005E110C /* LiveView.swift */; };
+		0EE641FD2A852339005E110C /* LiveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE641FC2A852339005E110C /* LiveCard.swift */; };
 		419EE0C8F1C2DB00FD5E0AFB /* Pods_firstApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADDE9F48F5A345ECEF11947 /* Pods_firstApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		0E6F28962A6D562700559A6D /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		0E8330B32A700C95002927FC /* RefreshLoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshLoadView.swift; sourceTree = "<group>"; };
 		0EE2EBAC2A6591A7007D8E13 /* RequestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMapper.swift; sourceTree = "<group>"; };
+		0EE641FA2A851D68005E110C /* LiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
+		0EE641FC2A852339005E110C /* LiveCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCard.swift; sourceTree = "<group>"; };
 		6ADDE9F48F5A345ECEF11947 /* Pods_firstApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firstApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6946FBB7452852E563E4A17 /* Pods-firstApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstApp.release.xcconfig"; path = "Target Support Files/Pods-firstApp/Pods-firstApp.release.xcconfig"; sourceTree = "<group>"; };
 		C13F233249CF0D37EEC0E530 /* Pods-firstApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstApp.debug.xcconfig"; path = "Target Support Files/Pods-firstApp/Pods-firstApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		0E54110B2A658B62005CF2E0 /* firstApp */ = {
 			isa = PBXGroup;
 			children = (
+				0EE641F92A851D53005E110C /* Views */,
 				0E6F28932A6D0C8100559A6D /* ComponentsView */,
 				0EE2EBAE2A659316007D8E13 /* Request */,
 				0E54110C2A658B62005CF2E0 /* firstAppApp.swift */,
@@ -163,6 +168,7 @@
 				0E6F28942A6D0CB700559A6D /* TopHeader.swift */,
 				0E6F28962A6D562700559A6D /* Loading.swift */,
 				0E8330B32A700C95002927FC /* RefreshLoadView.swift */,
+				0EE641FC2A852339005E110C /* LiveCard.swift */,
 			);
 			path = ComponentsView;
 			sourceTree = "<group>";
@@ -174,6 +180,14 @@
 				0EE2EBAC2A6591A7007D8E13 /* RequestMapper.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		0EE641F92A851D53005E110C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0EE641FA2A851D68005E110C /* LiveView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2B231BB912C47AEF4D2BF1DC /* Pods */ = {
@@ -376,9 +390,11 @@
 				0E54110F2A658B62005CF2E0 /* ContentView.swift in Sources */,
 				0E6F28972A6D562700559A6D /* Loading.swift in Sources */,
 				0E8330B42A700C95002927FC /* RefreshLoadView.swift in Sources */,
+				0EE641FD2A852339005E110C /* LiveCard.swift in Sources */,
 				0E5AFB4F2A680F1D00F41B3E /* BannerCard.swift in Sources */,
 				0E5411392A658C8F005CF2E0 /* Api.swift in Sources */,
 				0E54110D2A658B62005CF2E0 /* firstAppApp.swift in Sources */,
+				0EE641FB2A851D68005E110C /* LiveView.swift in Sources */,
 				0E5AFB512A680F9000F41B3E /* Tools.swift in Sources */,
 				0EE2EBAD2A6591A7007D8E13 /* RequestMapper.swift in Sources */,
 				0E6F28952A6D0CB700559A6D /* TopHeader.swift in Sources */,

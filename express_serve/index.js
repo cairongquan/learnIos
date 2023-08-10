@@ -29,12 +29,17 @@ function getNewsLHandle(last_oid) {
     })
 } 
 app.get("/news", async (req, res) => {
-    const { last_oid = "" } = req.query;
-    console.log('target', last_oid)
-    await delayTimer(5000)
-    const resolve = await getNewsLHandle(last_oid)
-    res.send(resolve)
+    // const { last_oid = "" } = req.query;
+    // console.log('target', last_oid)
+    // await delayTimer(5000)
+    // const resolve = await getNewsLHandle(last_oid)
+    // res.send(resolve)
+    res.send(require('./news.json'))
 });
+
+app.get("/live",(req,res)=>{
+    res.send(require('./live.json'))
+})
 
 
 app.listen(3000, () => {

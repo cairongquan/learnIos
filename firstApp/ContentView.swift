@@ -15,53 +15,62 @@ struct ContentView: View {
     @State var footerRefreshing: Bool = false
     @State private var progress: CGFloat = 0.0
 
+    private let numberOfPages = 2
+    private let screenWidth = UIScreen.main.bounds.width
+    
     var body: some View {
         VStack {
             VStack {
                 TopHeader()
                 if !self.newsListArray.isEmpty {
-                    ScrollView(.vertical, showsIndicators: false) {
-                        RefreshHeader(refreshing: $headerRefreshing, action: headerAction) { progress in
-                            if self.headerRefreshing {
-                                // 下拉释放
-                                Loading(tipText: "")
-                            } else {
-                                // 下拉不释放
-                                RefreshLoadView(progress: putProgressValue(progress: progress))
-                            }
-                        }
-                        VStack(alignment: .center, spacing: 12) {
-                            ForEach(self.newsListArray, id: \.self._id) { Element in
-                                Group {
-                                    if Element.title != "" {
-                                        artCard(newsItem: (
-                                            picPath: Element.cover,
-                                            title: Element.title,
-                                            vicTitle: Element.content,
-                                            date: Element.relativeTime,
-                                            type: ""
-                                        ))
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack{
+                            ScrollView(.vertical, showsIndicators: false) {
+                                RefreshHeader(refreshing: $headerRefreshing, action: headerAction) { progress in
+                                    if self.headerRefreshing {
+                                        // 下拉释放
+                                        Loading(tipText: "")
                                     } else {
-                                        bannerCard(bannerData: (
-                                            backgroundImage: Element.cover,
-                                            date: Element.created_at,
-                                            content: Element.content,
-                                            from: Element.from
-                                        ))
+                                        // 下拉不释放
+                                        RefreshLoadView(progress: putProgressValue(progress: progress))
+                                    }
+                                }
+                                VStack(alignment: .center, spacing: 12) {
+                                    ForEach(self.newsListArray, id: \.self._id) { Element in
+                                        Group {
+                                            if Element.title != "" {
+                                                artCard(newsItem: (
+                                                    picPath: Element.cover,
+                                                    title: Element.title,
+                                                    vicTitle: Element.content,
+                                                    date: Element.relativeTime,
+                                                    type: ""
+                                                ))
+                                            } else {
+                                                bannerCard(bannerData: (
+                                                    backgroundImage: Element.cover,
+                                                    date: Element.created_at,
+                                                    content: Element.content,
+                                                    from: Element.from
+                                                ))
+                                            }
+                                        }
+                                    }
+                                }
+                                RefreshFooter(refreshing: $footerRefreshing, action: footerAction) {
+                                    if self.footerRefreshing {
+                                        Loading(tipText: "加载中")
                                     }
                                 }
                             }
-                        }
-                        RefreshFooter(refreshing: $footerRefreshing, action: footerAction) {
-                            if self.footerRefreshing {
-                                Loading(tipText: "加载中")
-                            }
+                            .enableRefresh()
+                            .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+                            .frame(width:screenWidth)
+                            LiveView()
                         }
                     }
-                    .enableRefresh()
-                    .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
-//                    .frame(maxWidth:UIScreen.main.bounds.width + 20)
-                } else {
+                }
+                else {
                     VStack {
                         Loading(tipText: "加载数据中...")
                     }

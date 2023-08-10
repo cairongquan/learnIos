@@ -2,6 +2,7 @@ import Moya
 
 enum FirstAppApi {
     case getNewsList(id: String)
+    case getLiveList(page:String)
 }
 
 extension FirstAppApi: TargetType {
@@ -10,6 +11,8 @@ extension FirstAppApi: TargetType {
         switch self {
         case .getNewsList:
             return "/news"
+        case .getLiveList:
+            return "/live"
         }
     }
     
@@ -22,6 +25,9 @@ extension FirstAppApi: TargetType {
         switch self {
         case .getNewsList(let lastId):
             let params: [String: Any] = ["last_oid": lastId]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .getLiveList(let page):
+            let params: [String: Any] = ["page": page]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
     }
