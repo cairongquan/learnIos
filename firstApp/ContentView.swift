@@ -14,17 +14,23 @@ struct ContentView: View {
     @State var headerRefreshing: Bool = false
     @State var footerRefreshing: Bool = false
     @State private var progress: CGFloat = 0.0
+    @State var offsetX: Double = 0.0
 
-    private let numberOfPages = 2
+    private let numberOfPages = 3
     private let screenWidth = UIScreen.main.bounds.width
-    
+
     var body: some View {
         VStack {
             VStack {
-                TopHeader()
+                TopHeader { index in
+                    print(index)
+                    withAnimation {
+                        offsetX = CGFloat(index) * screenWidth + (CGFloat(index) * 12)
+                    }
+                }
                 if !self.newsListArray.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack{
+                        HStack {
                             ScrollView(.vertical, showsIndicators: false) {
                                 RefreshHeader(refreshing: $headerRefreshing, action: headerAction) { progress in
                                     if self.headerRefreshing {
@@ -36,7 +42,7 @@ struct ContentView: View {
                                     }
                                 }
                                 VStack(alignment: .center, spacing: 12) {
-                                    ForEach(self.newsListArray, id: \.self._id) { Element in
+                                    ForEach(self.newsListArray, id: \.self.id) { Element in
                                         Group {
                                             if Element.title != "" {
                                                 artCard(newsItem: (
@@ -65,12 +71,18 @@ struct ContentView: View {
                             }
                             .enableRefresh()
                             .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
-                            .frame(width:screenWidth)
+                            .frame(width: screenWidth)
+                            // 直播
                             LiveView()
+                                .frame(width: screenWidth)
+                            // 每日一言
+                            OneDayTalkView()
+                                .frame(width: screenWidth)
                         }
+                        .frame(maxWidth: .infinity)
+                        .offset(x: -offsetX)
                     }
-                }
-                else {
+                } else {
                     VStack {
                         Loading(tipText: "加载数据中...")
                     }
@@ -103,7 +115,7 @@ extension ContentView {
         footerRefreshing = true
         var tempNewsArray = newsListArray
         if let lastNews = viewModel.newsList?.last {
-            viewModel.getNewListData(id: String(lastNews._id)) { newsArray in
+            viewModel.getNewListData(id: String(lastNews.id)) { newsArray in
                 if !newsArray.isEmpty {
                     newsArray.forEach { item in
                         tempNewsArray.append(item)

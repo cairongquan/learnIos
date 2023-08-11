@@ -26,6 +26,7 @@
 		0EE641FB2A851D68005E110C /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE641FA2A851D68005E110C /* LiveView.swift */; };
 		0EE641FD2A852339005E110C /* LiveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE641FC2A852339005E110C /* LiveCard.swift */; };
 		419EE0C8F1C2DB00FD5E0AFB /* Pods_firstApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADDE9F48F5A345ECEF11947 /* Pods_firstApp.framework */; };
+		7113F6472A862D79008EC4D5 /* OneDayTalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7113F6462A862D78008EC4D5 /* OneDayTalkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		0EE641FA2A851D68005E110C /* LiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
 		0EE641FC2A852339005E110C /* LiveCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCard.swift; sourceTree = "<group>"; };
 		6ADDE9F48F5A345ECEF11947 /* Pods_firstApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firstApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7113F6462A862D78008EC4D5 /* OneDayTalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayTalkView.swift; sourceTree = "<group>"; };
 		A6946FBB7452852E563E4A17 /* Pods-firstApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstApp.release.xcconfig"; path = "Target Support Files/Pods-firstApp/Pods-firstApp.release.xcconfig"; sourceTree = "<group>"; };
 		C13F233249CF0D37EEC0E530 /* Pods-firstApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstApp.debug.xcconfig"; path = "Target Support Files/Pods-firstApp/Pods-firstApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				0EE641FA2A851D68005E110C /* LiveView.swift */,
+				7113F6462A862D78008EC4D5 /* OneDayTalkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				0E6F28972A6D562700559A6D /* Loading.swift in Sources */,
 				0E8330B42A700C95002927FC /* RefreshLoadView.swift in Sources */,
 				0EE641FD2A852339005E110C /* LiveCard.swift in Sources */,
+				7113F6472A862D79008EC4D5 /* OneDayTalkView.swift in Sources */,
 				0E5AFB4F2A680F1D00F41B3E /* BannerCard.swift in Sources */,
 				0E5411392A658C8F005CF2E0 /* Api.swift in Sources */,
 				0E54110D2A658B62005CF2E0 /* firstAppApp.swift in Sources */,

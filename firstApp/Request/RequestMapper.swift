@@ -5,7 +5,6 @@ struct NewsList: Decodable {
 
     struct NewListItem: Decodable {
         var id: Int
-        var _id: String
         var content: String
         var cover: String
         var from: String
@@ -14,7 +13,6 @@ struct NewsList: Decodable {
         var created_at: Int
 
         private enum CodingKeys: String, CodingKey {
-            case _id
             case id
             case content
             case cover
@@ -48,6 +46,7 @@ struct LiveList:Decodable{
 public class RequestMapper: ObservableObject {
     @Published var newsList: [NewsList.NewListItem]?
     @Published var liveList: [LiveList.LiveItemList]?
+    @Published var talkList: [NewsList.NewListItem]?
     
     let requestIns = MoyaProvider<FirstAppApi>()
 
@@ -84,6 +83,29 @@ public class RequestMapper: ObservableObject {
                             let resolveData = try JSONDecoder().decode(LiveList.self, from: utf8Data)
                             self.liveList = resolveData.items
                             _action?(self.liveList ?? [])
+                        }
+                    }
+                    catch {
+                        // 处理解析错误
+                        print("JSON 解析错误: \(error)")
+                    }
+                case .failure(let error):
+                    // 处理请求失败的错误
+                    print("请求失败: \(error)")
+            }
+        }
+    }
+    
+    // 请求每日一言列表
+    func getOneDayTalkListData(id: String, _action: (([NewsList.NewListItem]) -> Void)? = nil) {
+        self.requestIns.request(.getOneDayTalk(id: id)) { result in
+            switch result {
+                case .success(let response):
+                    do {
+                        if let utf8Data = String(data: response.data, encoding: .utf8)?.data(using: .utf8) {
+                            let resolveData = try JSONDecoder().decode(NewsList.self, from: utf8Data)
+                            self.talkList = resolveData.items
+                            _action?(self.talkList ?? [])
                         }
                     }
                     catch {

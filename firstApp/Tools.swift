@@ -25,13 +25,13 @@ func HexColor(rgbValue: UInt) -> Color {
 }
 
 // 返回背景图卡片时间格式
-func getTimeValue(time:Double) -> (month:String,day:String,year:String){
+func getTimeValue(time:Double,notMMM:Bool) -> (month:String,day:String,year:String){
     let date = Date(timeIntervalSince1970: time)
     let timer = Calendar.current
     return (
         year:String(timer.component(.year, from: date)),
         day:String(timer.component(.day, from: date)),
-        month:MonthDirectory[timer.component(.month, from: date)]!
+        month:notMMM == true ? String(timer.component(.month, from: date)) : MonthDirectory[timer.component(.month, from: date)]!
     )
 }
 

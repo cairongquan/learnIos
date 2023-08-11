@@ -14,7 +14,7 @@ struct bannerCard: View {
     var timerInfo: (month: String, day: String, year: String)
 
     init(bannerData: BannerCardParams) {
-        self.timerInfo = getTimeValue(time: Double(bannerData.date))
+        self.timerInfo = getTimeValue(time: Double(bannerData.date),notMMM: false)
         self.bannerData = bannerData
     }
 
@@ -48,7 +48,7 @@ struct bannerCard: View {
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 14))
             }
         }
-        .frame(height: 220)
+        .frame(height: 200)
         .padding(EdgeInsets(top: 12, leading: 14, bottom: 12, trailing: 0))
         .background(Group {
             AsyncImage(url: URL(string: self.bannerData.backgroundImage.replacingOccurrences(of: "http://", with: "https://"))) { phase in
@@ -57,6 +57,7 @@ struct bannerCard: View {
                         .resizable()
                         .frame(width: .infinity, height: .infinity)
                         .clipped()
+                        .scaledToFill()
                 }
                 Color.black.opacity(0.5)
             }

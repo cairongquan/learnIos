@@ -3,6 +3,7 @@ import Moya
 enum FirstAppApi {
     case getNewsList(id: String)
     case getLiveList(page:String)
+    case getOneDayTalk(id:String)
 }
 
 extension FirstAppApi: TargetType {
@@ -13,6 +14,8 @@ extension FirstAppApi: TargetType {
             return "/news"
         case .getLiveList:
             return "/live"
+        case .getOneDayTalk:
+            return "/oneDayTalk"
         }
     }
     
@@ -28,6 +31,9 @@ extension FirstAppApi: TargetType {
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .getLiveList(let page):
             let params: [String: Any] = ["page": page]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .getOneDayTalk(let lastId):
+            let params: [String: Any] = ["last_oid": lastId]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
     }
