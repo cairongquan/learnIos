@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var progress: CGFloat = 0.0
     @State var offsetX: Double = 0.0
 
-    private let numberOfPages = 3
+    private varvar numberOfPages = 1
     private let screenWidth = UIScreen.main.bounds.width
 
     var body: some View {
@@ -25,7 +25,7 @@ struct ContentView: View {
                 TopHeader { index in
                     print(index)
                     withAnimation {
-                        offsetX = CGFloat(index) * screenWidth + (CGFloat(index) * 12)
+                        offsetX = CGFloat(index) * screenWidth + (CGFloat(index) * 6)
                     }
                 }
                 if !self.newsListArray.isEmpty {
@@ -79,6 +79,13 @@ struct ContentView: View {
                             OneDayTalkView()
                                 .frame(width: screenWidth)
                         }
+                        .gesture(
+                            DragGesture().onChanged { value in
+                                if abs(value.translation.width) > 9{
+                                    self.numberOfPages +=  1
+                                }
+                            }
+                        )
                         .frame(maxWidth: .infinity)
                         .offset(x: -offsetX)
                     }
