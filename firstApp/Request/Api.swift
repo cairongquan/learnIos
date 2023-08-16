@@ -4,6 +4,7 @@ enum FirstAppApi {
     case getNewsList(id: String)
     case getLiveList(page:String)
     case getOneDayTalk(id:String)
+    case getConsultList(id:String)
 }
 
 extension FirstAppApi: TargetType {
@@ -16,6 +17,8 @@ extension FirstAppApi: TargetType {
             return "/live"
         case .getOneDayTalk:
             return "/oneDayTalk"
+        case .getConsultList:
+            return "/consult"
         }
     }
     
@@ -34,6 +37,9 @@ extension FirstAppApi: TargetType {
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .getOneDayTalk(let lastId):
             let params: [String: Any] = ["last_oid": lastId]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .getConsultList(let lastId):
+            let params: [String: Any] = ["last_id": lastId]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
     }

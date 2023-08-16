@@ -57,13 +57,19 @@ app.get("/news", async (req, res) => {
   res.send(require("./news.json"));
 });
 
+// 直播
 app.get("/live", (req, res) => {
   res.send(require("./live.json"));
 });
 
+// 每日一言
 app.get("/oneDayTalk", (req, res) => {
   res.send(require("./oneDayTalk.json"));
 });
+
+app.get("/consult", (req, res) => {
+  res.send(require('./consult.json'))
+})
 
 app.listen(3000, () => {
   console.log("service live in host 3000");

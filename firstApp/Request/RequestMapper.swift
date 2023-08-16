@@ -43,10 +43,13 @@ struct LiveList:Decodable{
     }
 }
 
+
+
 public class RequestMapper: ObservableObject {
     @Published var newsList: [NewsList.NewListItem]?
     @Published var liveList: [LiveList.LiveItemList]?
     @Published var talkList: [NewsList.NewListItem]?
+    @Published var consultList: [NewsList.NewListItem]?
     
     let requestIns = MoyaProvider<FirstAppApi>()
 
@@ -106,6 +109,29 @@ public class RequestMapper: ObservableObject {
                             let resolveData = try JSONDecoder().decode(NewsList.self, from: utf8Data)
                             self.talkList = resolveData.items
                             _action?(self.talkList ?? [])
+                        }
+                    }
+                    catch {
+                        // 处理解析错误
+                        print("JSON 解析错误: \(error)")
+                    }
+                case .failure(let error):
+                    // 处理请求失败的错误
+                    print("请求失败: \(error)")
+            }
+        }
+    }
+    
+    // 咨询列表请求
+    func getConsultList(id: String, _action: (([NewsList.NewListItem]) -> Void)? = nil) {
+        self.requestIns.request(.getConsultList(id: id)) { result in
+            switch result {
+                case .success(let response):
+                    do {
+                        if let utf8Data = String(data: response.data, encoding: .utf8)?.data(using: .utf8) {
+                            let resolveData = try JSONDecoder().decode(NewsList.self, from: utf8Data)
+                            self.consultList = resolveData.items
+                            _action?(self.consultList ?? [])
                         }
                     }
                     catch {
